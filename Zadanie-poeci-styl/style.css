@@ -1,0 +1,60 @@
+body {
+    font-family: "Roboto Mono", monospace;
+    background-color: #f5f5dc;
+    text-align: center;
+}
+p {
+    display: inline-block;
+    background-color: #f8f8f8;
+    border: 1px solid #acaaaa;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+    margin-right: 25em;
+    margin-left: 25em;
+}
+.german {
+    display: inline-block;
+    background: linear-gradient(
+        #000 33.333%,
+        #ff0000 33.33% 66.666%,
+        #ffcc00 66.666%
+    );
+    border: 1px solid #acaaaa;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 3px black, 0 0 3px black, 0 0 1px black, 0 0 1px black;
+}
+
+.greek {
+    display: inline-block;
+    background: linear-gradient(
+                transparent,
+                transparent 39%,
+                white 39%,
+                white 61%,
+                transparent 61%
+            )
+            0 0/37.5% 55.56% no-repeat,
+        linear-gradient(
+                90deg,
+                #0d5eaf,
+                #0d5eaf 39%,
+                white 39%,
+                white 61%,
+                #0d5eaf 61%
+            )
+            0 0/37.5% 55.56% no-repeat,
+        linear-gradient(transparent, transparent 50%, white 50%) 0 0/100% 22.23%,
+        #0d5eaf;
+    border: 1px solid #acaaaa;
+    padding: 0.125rem 0.3125rem 0.0625rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 0 3px black, 0 0 3px black, 0 0 1px black, 0 0 1px black;
+}
+
+h1 {
+    color: green;
+}
