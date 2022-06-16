@@ -3,14 +3,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//class named people with name surname and age
+
 class People {
     String city;
     String name;
     String surname;
     String pesel;
 
-    // constructor with name, surname and age
     public People(String city, String name, String surname, String pesel) {
         this.city = city;
         this.name = name;
@@ -19,7 +18,6 @@ class People {
 
     }
 
-    // create method to edit people paramters
     public void editPeople(String city, String name, String surname, String pesel) {
         this.city = city;
         this.name = name;
