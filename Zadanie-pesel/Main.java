@@ -31,28 +31,26 @@ class People {
 public class Main {
 
     public static boolean validate(String pesel) {
-
-        int[] wagi = { 1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
+        int[] weights = { 1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
 
         if (pesel.length() != 11)
             return false;
 
-        int suma = 0;
+        int sum = 0;
 
-        for (int i = 0; i < 10; i++)
-            suma += Integer.parseInt(pesel.substring(i, i + 1)) * wagi[i];
+        for (int i = 0; i < pesel.length() - 1; i++)
+            sum += Integer.parseInt(pesel.substring(i, i + 1)) * weights[i];
 
-        int cyfraKontrolna = Integer.parseInt(pesel.substring(10, 11));
+        int checkDigit = Integer.parseInt(pesel.substring(pesel.length() - 1));
+        sum %= 10;
+        sum = 10 - sum;
+        sum %= 10;
 
-        suma %= 10;
-        suma = 10 - suma;
-        suma %= 10;
-
-        return (suma == cyfraKontrolna);
+        return (sum == checkDigit);
 
     }
 
-    // class to check if pesel exists in arraylist
+    // check if pesel exists in arraylist
     public static boolean checkPesel(ArrayList<People> people, String pesel) {
         for (People p : people) {
             if (p.pesel.equals(pesel)) {
@@ -65,10 +63,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<People> people = new ArrayList<People>(20);
         while (true) {
-            System.out.println("Hello World!"); // Display the string.
-            // user input to create new people and add them to arraylist
             Scanner scanner = new Scanner(System.in);
-
             System.out.println("Podaj miasto: ");
             String city = scanner.nextLine();
             System.out.println("Podaj imie: ");
@@ -93,13 +88,11 @@ public class Main {
                 System.out.println("Pesel jest niepoprawny");
             }
 
-            // people.add(new People(city, name, surname, pesel));
             System.out.println("Czy chcesz dodać kolejnego uzytkownika? (t/n)");
             String answer = scanner.nextLine();
             if (answer.equals("t")) {
                 continue;
             } else {
-                // print all people
                 for (People p : people) {
                     System.out.println(p.city + " " + p.name + " " + p.surname + " " + p.pesel);
                 }
@@ -112,11 +105,8 @@ public class Main {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 break;
             }
-
         }
-
     }
 }
