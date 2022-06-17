@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio (https://www.liquid-technologies.com) -->
+<uni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="uniwersytetv2.xsd">
+    <faculty>
+        <id_faculty IDF="FT_0001" />
+        <name>Wydział Astronomiczny</name>
+        <address_faculty>
+            <street>Sezamkowa</street>
+            <nr>137</nr>
+            <postal_code>23-848</postal_code>
+            <city>Radom</city>
+        </address_faculty>
+        <staff>
+            <ins>
+                <id_staff IDS="ST_0001" />
+                <name_staff name="string">Wojciech</name_staff>
+                <surname_staff surname="string">Kowalski</surname_staff>
+                <title>doktor</title>
+                <category>Naukowy</category>
+                <address_staff>
+                    <street>Wodna</street>
+                    <nr>133</nr>
+                    <postal_code>74-604</postal_code>
+                    <city>Rzeszów</city>
+                </address_staff>
+            </ins>
+            <ins>
+                <id_staff IDS="ST_0002" />
+                <name_staff name="string">Tomasz</name_staff>
+                <surname_staff surname="string">Lekki</surname_staff>
+                <category>Administracyjny</category>
+                <address_staff>
+                    <street>Zbożowa</street>
+                    <nr>133</nr>
+                    <postal_code>74-604</postal_code>
+                    <city>Radom</city>
+                </address_staff>
+            </ins>
+        </staff>
+        <subjects>
+            <subject>
+                <subject_code CODE="CE_0001" />
+                <name>Fizyka</name>
+                <description>Jest to fizyka</description>
+                <students_enrolled>376</students_enrolled>
+                <instructors staff="ST_0001" />
+            </subject>
+        </subjects>
+    </faculty>
+</uni>

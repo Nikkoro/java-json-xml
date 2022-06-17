@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Created with Liquid Studio (https://www.liquid-technologies.com)-->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <!--===========================================================-->
+    <xsd:element name="staff">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ins" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="id_staff">
+                                <xsd:complexType>
+                                    <xsd:attribute name="IDS" type="xsd:ID" use="required" />
+                                </xsd:complexType>
+                                <xsd:unique name="IDP">
+                                    <xsd:selector xpath="IDPRAC" />
+                                    <xsd:field xpath="@IDP" />
+                                </xsd:unique>
+                            </xsd:element>
+                            <xsd:element name="name_staff">
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="surname_staff">
+                                <xsd:complexType>
+                                    <xsd:simpleContent>
+                                        <xsd:extension base="xsd:string">
+                                            <xsd:attribute name="surname" type="xsd:string" use="required" />
+                                        </xsd:extension>
+                                    </xsd:simpleContent>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="title" minOccurs="0">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="magister" />
+                                        <xsd:enumeration value="inżynier" />
+                                        <xsd:enumeration value="doktor" />
+                                        <xsd:enumeration value="profesor" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="category" minOccurs="1" maxOccurs="1">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:string">
+                                        <xsd:enumeration value="Naukowy" />
+                                        <xsd:enumeration value="Administracyjny" />
+                                        <xsd:enumeration value="Techniczny" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="address_staff" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="street" type="xsd:string" />
+                                        <xsd:element name="nr">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:int">
+                                                    <xsd:maxInclusive value="200" />
+                                                    <xsd:minExclusive value="1" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="postal_code">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:pattern value="\d{2}-\d{3}" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="city" type="xsd:string" />
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="uni">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="faculty">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="id_faculty">
+                                <xsd:complexType>
+                                    <xsd:attribute name="IDF" type="xsd:ID" use="required" />
+                                </xsd:complexType>
+                                <xsd:unique name="IDF">
+                                    <xsd:selector xpath="id_faculty" />
+                                    <xsd:field xpath="@IDF" />
+                                </xsd:unique>
+                            </xsd:element>
+                            <xsd:element name="name" type="xsd:string" />
+                            <xsd:element name="address_faculty" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="street" type="xsd:string" />
+                                        <xsd:element name="nr">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:int">
+                                                    <xsd:maxInclusive value="200" />
+                                                    <xsd:minExclusive value="1" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="postal_code">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:pattern value="\d{2}-\d{3}" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="city" type="xsd:string" />
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element ref="staff" />
+                            <xsd:element name="subjects">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="subject">
+                                            <xsd:complexType>
+                                                <xsd:sequence>
+                                                    <xsd:element name="subject_code">
+                                                        <xsd:complexType>
+                                                            <xsd:attribute name="CODE" type="xsd:ID" use="required" />
+                                                        </xsd:complexType>
+                                                        <xsd:unique name="CODE">
+                                                            <xsd:selector xpath="subject_code" />
+                                                            <xsd:field xpath="@CODE" />
+                                                        </xsd:unique>
+                                                    </xsd:element>
+                                                    <xsd:element name="name" type="xsd:string" />
+                                                    <xsd:element name="description" type="xsd:string" />
+                                                    <xsd:element name="students_enrolled">
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:short">
+                                                                <xsd:minInclusive value="6" />
+                                                                <xsd:maxInclusive value="400" />
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:element>
+                                                    <xsd:element name="instructors" minOccurs="1" maxOccurs="unbounded">
+                                                        <xsd:complexType>
+                                                            <xsd:attribute name="staff" type="xsd:IDREF" use="required" />
+                                                        </xsd:complexType>
+                                                    </xsd:element>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
